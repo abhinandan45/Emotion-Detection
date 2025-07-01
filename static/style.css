@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #141e30, #243b55);
+    color: white;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.animated-text {
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    background: -webkit-linear-gradient(#ff6a00, #ee0979);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #ff6a00; }
+    100% { text-shadow: 0 0 20px #ee0979; }
+}
+
+form input[type="file"] {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 6px;
+}
+
+form button {
+    background-color: #ff6a00;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background-color: #ee0979;
+    transform: scale(1.1);
+}
+
+.output {
+    margin-top: 30px;
+}
+
+.output img {
+    width: 250px;
+    border: 5px solid white;
+    border-radius: 10px;
+}
+
+.emotion-box {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #00ffcc;
+}

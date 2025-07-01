@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>🎯 Predicted Emotion: <span style="color: #00ffd0;">{{ prediction }}</span></h2>
+        <img src="{{ url_for('static', filename=user_image) }}" alt="Uploaded Image">
+        <br><br>
+        <a href="/" style="color: #fff; text-decoration: underline;">⬅️ Try Another Image</a>
+    </div>
+</body>
+</html>
