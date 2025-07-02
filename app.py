@@ -5,12 +5,10 @@ from flask import Flask, render_template, request
 from keras.models import load_model
 
 app = Flask(__name__)
-model = load_model('emotion_model.h5')
+model = load_model('emotion_model.keras')
 
-# Emotion labels
 emotion_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
 
-# Haarcascade for face detection
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 @app.route('/')
@@ -21,14 +19,12 @@ def index():
 def predict():
     file = request.files['image']
     
-    # Create static folder if not exists
     if not os.path.exists('static'):
         os.makedirs('static')
     
     image_path = os.path.join('static', 'uploaded.jpg')
     file.save(image_path)
 
-    # Load and preprocess image
     img = cv2.imread(image_path)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
@@ -43,7 +39,7 @@ def predict():
 
         prediction = model.predict(roi)
         prediction_label = emotion_labels[np.argmax(prediction)]
-        break  # just first face
+        break 
 
     return render_template('result.html', prediction=prediction_label, user_image='uploaded.jpg')
 
