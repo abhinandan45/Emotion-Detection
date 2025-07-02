@@ -5,7 +5,7 @@ from flask import Flask, render_template, request
 from keras.models import load_model
 
 app = Flask(__name__)
-model = load_model('emotion_model.keras')
+model = load_model('saved_model_emotion')
 
 emotion_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
 
